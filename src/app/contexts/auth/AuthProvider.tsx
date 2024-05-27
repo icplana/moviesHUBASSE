@@ -1,5 +1,5 @@
 'use client'
-import { useReducer } from "react"
+import { useReducer, ReactNode } from "react"
 import { authReducer } from "./authReducer"
 import { AuthContext } from './AuthContext';
 import { types } from "./types"
@@ -13,8 +13,11 @@ const initialState =  {
   user: null
 }
 
+interface AuthProviderProps {
+  children: ReactNode;
+}
 
-export const AuthProvider = ({ children }) => {
+const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
 const router = useRouter()
 
